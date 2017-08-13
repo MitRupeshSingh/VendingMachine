@@ -9,7 +9,7 @@ class VendingMachine
 	private static int Balance=0; //stores total balance
 	private static Map<String, Integer> itemInventory = new HashMap<String, Integer>(); //hashmap for items and its numbers
 	private static Map<String, Integer> coinInventory = new HashMap<String, Integer>(); //hashmap for coins and its numbers
-    private static vendingExample VM = new vendingExample();
+    	private static vendingExample VM = new vendingExample();
 	public static void main(String args[])
 	{	  
 		
@@ -26,27 +26,27 @@ class VendingMachine
 		int checkVendCond=0;
 		if(!itemInventory.containsKey(sample)){ // for return and cancel case
 			checkVendCond=VM.choose(sample,Balance);
-	     } else if(itemInventory.get(sample)==0){ // Sold out items
+	     	} else if(itemInventory.get(sample)==0){ // Sold out items
    	 		System.out.println("Sold Out, Please insert coins and buy another item");
    	 		VendingMachine.main(null);
-	     }else{
+	     	}else{
 	    	 checkVendCond=VM.choose(sample,Balance);
 	    	 if(checkVendCond==2){
 					System.out.println("Insert More Coins");
 					inputCoins(sc,VM); 
-			    	sample=selectItems(sc,VM);
+			    		sample=selectItems(sc,VM);
 			   	 	if(itemInventory.get(sample)==0){
 			   	 		System.out.println("Sold Out, Please insert coins and buy the items");
 			   	 		VendingMachine.main(null);
-				     } else if(itemInventory.get(sample)==1 || itemInventory.get(sample)==-1){
+				     	} else if(itemInventory.get(sample)==1 || itemInventory.get(sample)==-1){
 
-				     }else{
+				    	 }else{
 				    	 itemInventory.put(sample, itemInventory.get(sample) - 1);
 				    	 Balance=checkVendCond;
-				     }
+				     	}
 	    	 }else{
-	    		 itemInventory.put(sample, itemInventory.get(sample) - 1);
-	    		 Balance=checkVendCond;
+					 itemInventory.put(sample, itemInventory.get(sample) - 1);
+					 Balance=checkVendCond;
 	    	 }
 	    	 
 	     }
